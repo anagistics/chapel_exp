@@ -65,7 +65,6 @@ proc ComputeMandelSet(out image: [ImageRange] uint) : uint
       }
       cy += deltaY;
     }
-    startVerboseGpu();
 
     on here.gpus[0] 
     {
@@ -89,7 +88,6 @@ proc ComputeMandelSet(out image: [ImageRange] uint) : uint
 
         image = gpuImage;
     }
-    stopVerboseGpu();
     var stopTime = Time.dateTime.now();
     return (stopTime - startTime).microseconds;
 }
